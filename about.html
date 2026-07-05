@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — DAASH</title>
+  <meta name="description" content="Learn about DAASH — our mission, team, and technology-driven approach to recruitment and staffing.">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .about-hero { padding: calc(var(--nav-height) + 80px) 0 60px; background: linear-gradient(165deg, var(--green-dark), #1A2400); overflow: hidden; }
+    .about-hero h1 { color: var(--white); font-size: clamp(2.5rem,5vw,4rem); }
+    .about-hero p { color: rgba(255,255,255,0.65); max-width: 600px; font-size: 1.1rem; line-height: 1.8; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .mission-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-xl); padding: 48px 40px; }
+    .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .value-item { padding: 24px 20px; border-radius: var(--radius-md); background: var(--off-white); border: 1px solid var(--gray-100); }
+    .value-item .val-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .value-item h4 { font-size: 1rem; margin-bottom: 6px; }
+    .value-item p { font-size: 0.85rem; color: var(--gray-500); }
+    .team-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-xl); padding: 40px; text-align: center; transition: all 0.4s; }
+    .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .team-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--green-pale); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid var(--green-light); }
+    .team-card h4 { font-size: 1.1rem; }
+    .team-card .role { color: var(--green-bright); font-weight: 600; font-size: 0.85rem; margin-bottom: 8px; }
+    .team-card p { font-size: 0.88rem; color: var(--gray-500); }
+    .story-content { max-width: 800px; margin: 0 auto; }
+    .story-content p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 20px; color: var(--gray-600); }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="/" class="navbar-brand">
+        <span class="logo-svg"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="d3d" x="-20%" y="-20%" width="160%" height="160%">
+              <feDropShadow dx="5" dy="7" stdDeviation="3" flood-color="#3A4D00" flood-opacity="0.35"/>
+            </filter>
+            <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="white" stop-opacity="0.6"/>
+              <stop offset="40%" stop-color="white" stop-opacity="0.05"/>
+              <stop offset="55%" stop-color="#DCE8C8" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="white" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect x="5" y="5" width="90" height="90" rx="18" fill="#3A4D00" opacity="0.3"/>
+          <rect x="0" y="0" width="90" height="90" rx="18" fill="#7CA000" filter="url(#d3d)"/>
+          <rect x="14" y="14" width="62" height="62" rx="10" fill="white"/>
+          <rect x="14" y="48" width="62" height="18" rx="10" fill="url(#gloss)" opacity="0.5"/>
+          <rect x="30" y="30" width="30" height="30" rx="6" fill="#4A6600"/>
+          <rect x="3" y="3" width="84" height="84" rx="16" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        </svg><span class="logo-text">DA<span>ASH</span></span></span>
+      </a>
+      <ul class="navbar-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-cta"><a href="contact.html">Get Started</a></li>
+      </ul>
+      <button class="mobile-toggle" onclick="openMobile()" aria-label="Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <button class="close-btn" onclick="closeMobile()">✕</button>
+    <a href="/" onclick="closeMobile()">Home</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <a href="technology.html" onclick="closeMobile()">Technology</a>
+    <a href="contact.html" onclick="closeMobile()">Contact</a>
+    <a href="contact.html" class="btn btn-green" onclick="closeMobile()" style="margin-top:20px;">Get Started</a>
+  </div>
+
+  <div class="about-hero" id="daash-hero">
+    <div class="container">
+      <div class="section-label" style="color:var(--green-light);" data-reveal="up">
+        <span style="width:28px;height:2px;background:var(--green-light);display:inline-block;border-radius:2px;"></span>
+        About DAASH
+      </div>
+      <h1 data-reveal="up" data-delay="0.1">Redefining Talent<br><span style="background:linear-gradient(135deg,var(--green-bright),var(--green-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Through Technology</span></h1>
+      <p data-reveal="up" data-delay="0.2">We are a technology-first recruitment and staffing company on a mission to make hiring faster, smarter, and more human — powered by proprietary SaaS platforms built from the ground up.</p>
+    </div>
+  </div>
+
+  <!-- Story -->
+  <section>
+    <div class="container">
+      <div class="story-content">
+        <div class="section-label text-center" style="justify-content:center;" data-reveal="up">Our Story</div>
+        <h2 class="text-center" style="text-align:center;" data-reveal="up" data-delay="0.1">Built by HR Professionals,<br>Powered by Engineers</h2>
+        <p data-reveal="up" data-delay="0.2">DAASH was founded on a simple insight: the recruitment industry has incredible people but outdated tools. While talent professionals work tirelessly to connect great candidates with great companies, the technology that powers them has lagged behind.</p>
+        <p data-reveal="up" data-delay="0.3">We set out to change that. By combining deep HR domain expertise with a dedicated in-house engineering team, we built a recruitment platform that doesn't just digitize old workflows — it reimagines them. Our proprietary SaaS technology automates sourcing, enhances matching accuracy, and provides real-time visibility into every stage of the hiring process.</p>
+        <p data-reveal="up" data-delay="0.4">Today, DAASH serves clients across IT, BFSI, healthcare, manufacturing, and e-commerce — delivering talent outcomes that traditional agencies simply can't match.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section style="background:var(--white);">
+    <div class="container">
+      <div class="about-grid">
+        <div class="mission-card tilt-card" data-reveal="up">
+          <span style="font-size:2.5rem;">🎯</span>
+          <h3 style="margin:16px 0 12px;">Our Mission</h3>
+          <p style="color:var(--gray-500);line-height:1.8;">To transform the hiring experience by combining human expertise with intelligent technology — making recruitment faster, more accurate, and more equitable for everyone.</p>
+        </div>
+        <div class="mission-card tilt-card" data-reveal="up" data-delay="0.15">
+          <span style="font-size:2.5rem;">🔭</span>
+          <h3 style="margin:16px 0 12px;">Our Vision</h3>
+          <p style="color:var(--gray-500);line-height:1.8;">A world where every company can build world-class teams without friction, and every candidate finds the role where they can do their best work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section>
+    <div class="container">
+      <div class="section-label text-center" style="justify-content:center;" data-reveal="up">Our Values</div>
+      <h2 class="text-center" style="text-align:center;" data-reveal="up" data-delay="0.1">What Drives Us</h2>
+      <div class="values-grid" style="margin-top:40px;" data-stagger="up">
+        <div class="value-item tilt-card">
+          <div class="val-icon">⚡</div>
+          <h4>Speed Without Compromise</h4>
+          <p>AI-driven shortlists in 48 hours, integrated assessments, and streamlined workflows that respect everyone's time.</p>
+        </div>
+        <div class="value-item tilt-card">
+          <div class="val-icon">🎯</div>
+          <h4>Precision Matching</h4>
+          <p>Our algorithms go beyond keywords — analysing skills, culture, career trajectory, and long-term fit.</p>
+        </div>
+        <div class="value-item tilt-card">
+          <div class="val-icon">🔒</div>
+          <h4>Trust & Transparency</h4>
+          <p>Real-time dashboards, clear communication, and end-to-end data security. No black boxes, no hidden processes.</p>
+        </div>
+        <div class="value-item tilt-card">
+          <div class="val-icon">💡</div>
+          <h4>Continuous Innovation</h4>
+          <p>Our in-house engineering team constantly improves our SaaS platform — new features ship every month.</p>
+        </div>
+        <div class="value-item tilt-card">
+          <div class="val-icon">🤝</div>
+          <h4>Partnership Mindset</h4>
+          <p>We don't just fill roles — we build lasting relationships with clients and candidates alike.</p>
+        </div>
+        <div class="value-item tilt-card">
+          <div class="val-icon">🌱</div>
+          <h4>Retention Focus</h4>
+          <p>Our proprietary retention scoring model predicts long-term success, reducing regretted attrition by 40%.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section style="background:var(--white);">
+    <div class="container">
+      <div class="section-label text-center" style="justify-content:center;" data-reveal="up">Leadership</div>
+      <h2 class="text-center" style="text-align:center;" data-reveal="up" data-delay="0.1">The People Behind DAASH</h2>
+      <div class="grid-3" style="margin-top:40px;" data-stagger="up">
+        <div class="team-card tilt-card">
+          <div class="team-avatar">👩‍💼</div>
+          <h4>Aashi</h4>
+          <div class="role">Founder & Managing Director</div>
+          <p>15+ years in HR and recruitment. Passionate about leveraging technology to create fairer, faster hiring processes.</p>
+        </div>
+        <div class="team-card tilt-card">
+          <div class="team-avatar">🧑‍💻</div>
+          <h4>Engineering Team</h4>
+          <div class="role">Product & Platform</div>
+          <p>Dedicated in-house engineering team building and maintaining our proprietary SaaS recruitment platform.</p>
+        </div>
+        <div class="team-card tilt-card">
+          <div class="team-avatar">🤝</div>
+          <h4>Talent Advisors</h4>
+          <div class="role">Recruitment & Client Success</div>
+          <p>Domain-specialized recruiters with deep networks across IT, BFSI, healthcare, manufacturing, and e-commerce.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section>
+    <div class="container" style="max-width:700px;">
+      <div class="section-label text-center" style="justify-content:center;" data-reveal="up">Our Journey</div>
+      <h2 class="text-center" style="text-align:center;" data-reveal="up" data-delay="0.1">Milestones</h2>
+      <div class="timeline" style="margin-top:48px;" data-stagger="up">
+        <div class="timeline-item"><h4>2025</h4><p style="color:var(--gray-500);">DAASH founded with a vision to combine HR expertise with proprietary SaaS technology. Platform development begins.</p></div>
+        <div class="timeline-item"><h4>Early 2026</h4><p style="color:var(--gray-500);">Beta launch of the DAASH recruitment platform. First 50 clients onboarded across IT, BFSI, and healthcare sectors.</p></div>
+        <div class="timeline-item"><h4>Mid 2026</h4><p style="color:var(--gray-500);">Expansion into managed services, payroll management, and technical infrastructure. 500+ successful placements. Office opens at Bhutani Alphathum, Noida.</p></div>
+        <div class="timeline-item"><h4>2027 & Beyond</h4><p style="color:var(--gray-500);">Planned expansion into pan-India operations, AI-driven skill assessment platform launch, and strategic partnerships with global enterprises.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="container">
+      <h2 data-reveal="up">Let's Build Something Together</h2>
+      <p data-reveal="up" data-delay="0.15">Ready to experience recruitment the way it should be?</p>
+      <a href="contact.html" class="btn btn-green" data-reveal="up" data-delay="0.3">Get In Touch →</a>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="container">
+      <div>
+        <div class="footer-brand">
+          <span class="logo-svg"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="d3d" x="-20%" y="-20%" width="160%" height="160%">
+                <feDropShadow dx="5" dy="7" stdDeviation="3" flood-color="#3A4D00" flood-opacity="0.35"/>
+              </filter>
+              <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="white" stop-opacity="0.6"/>
+                <stop offset="40%" stop-color="white" stop-opacity="0.05"/>
+                <stop offset="55%" stop-color="#DCE8C8" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="white" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect x="5" y="5" width="90" height="90" rx="18" fill="#3A4D00" opacity="0.3"/>
+            <rect x="0" y="0" width="90" height="90" rx="18" fill="#7CA000" filter="url(#d3d)"/>
+            <rect x="14" y="14" width="62" height="62" rx="10" fill="white"/>
+            <rect x="14" y="48" width="62" height="18" rx="10" fill="url(#gloss)" opacity="0.5"/>
+            <rect x="30" y="30" width="30" height="30" rx="6" fill="#4A6600"/>
+            <rect x="3" y="3" width="84" height="84" rx="16" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          </svg><span>DAASH</span>
+        </div>
+        <p>Technology-driven recruitment, staffing, and managed services. Powered by proprietary SaaS platforms. Headquartered in Noida, India.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">Recruitment</a></li>
+          <li><a href="services.html">Staffing</a></li>
+          <li><a href="services.html">Managed Services</a></li>
+          <li><a href="services.html">Payroll Management</a></li>
+          <li><a href="services.html">Technical Infrastructure</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+918743894697">+91 87438 94697</a></li>
+          <li><a href="mailto:hello@daash.in">hello@daash.in</a></li>
+          <li><p style="font-size:0.85rem; color:rgba(255,255,255,0.4);">Sector 90, Noida<br>Uttar Pradesh 201304</p></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container"><div class="footer-bottom">&copy; 2026 DAASH. All rights reserved. Built with purpose in Noida, India.</div></div>
+  </footer>
+  <script src="js/animations.js"></script>
+  <script>setNavbarMode('light');</script>
+</body>
+</html>
